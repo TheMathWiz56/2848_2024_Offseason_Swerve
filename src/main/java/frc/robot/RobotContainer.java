@@ -36,14 +36,15 @@ public class RobotContainer {
   private final Telemetry logger = new Telemetry(MaxSpeed);
 
     /* Path follower */
-    private Command runAuto = drivetrain.getAutoPath("Example Auto");
+    private Command runAuto = drivetrain.getAutoPath("3_Note");
 
   private void configureBindings() {
 
+    //Had to remove some (-) signs to get this to go the right direction. Seems weird
     drivetrain.setDefaultCommand( // Drivetrain will execute this command periodically
-        drivetrain.applyRequest(() -> drive.withVelocityX(-joystick.getLeftY() * MaxSpeed) // Drive forward with
+        drivetrain.applyRequest(() -> drive.withVelocityX(joystick.getLeftY() * MaxSpeed) // Drive forward with
                                                                                            // negative Y (forward)
-            .withVelocityY(-joystick.getLeftX() * MaxSpeed) // Drive left with negative X (left)
+            .withVelocityY(joystick.getLeftX() * MaxSpeed) // Drive left with negative X (left)
             .withRotationalRate(-joystick.getRightX() * MaxAngularRate) // Drive counterclockwise with negative X (left)
         ));
 
