@@ -36,7 +36,7 @@ public class RobotContainer {
   private final Telemetry logger = new Telemetry(MaxSpeed);
 
     /* Path follower */
-    private Command runAuto = drivetrain.getAutoPath("Tests");
+    private Command runAuto = drivetrain.getAutoPath("Example Auto");
 
   private void configureBindings() {
 
